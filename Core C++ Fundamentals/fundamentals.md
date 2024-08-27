@@ -1,4 +1,4 @@
-Here's a day-wise training plan for C++ development. This plan assumes a beginner to intermediate level of understanding and is structured over a two-week period. Each day will cover specific topics, with example code snippets to reinforce learning.
+Here's the C++ version of the Core Java development course, adapted to C++ with similar concepts and a final project.
 
 ---
 
@@ -282,31 +282,26 @@ Here's a day-wise training plan for C++ development. This plan assumes a beginne
 - **Example Code:**
   ```cpp
   #include <iostream>
-  #include <vector>
-  #include <set>
-  #include <map>
-
+  #include <fstream>
+  #include <string>
+  
   int main() {
-      // Vector Example
-      std::vector<std::string> list = {"C++", "Python"};
-      for (const auto& item : list) {
-          std::cout << "List item: " << item << std::endl;
+      // Writing to a file
+      std::ofstream outFile("example.txt");
+      outFile << "Hello, File Handling!" << std::endl;
+      outFile.close();
+  
+      // Reading from a file
+      std::ifstream inFile("example.txt");
+      std::string line;
+      while (std::getline(inFile, line)) {
+          std::cout << line << std::endl;
       }
-
-      // Set Example
-      std::set<std::string> set = {"C++", "C++"}; // Duplicate won't be added
-      for (const auto& item : set) {
-          std::cout << "Set item: " << item << std::endl;
-      }
-
-      // Map Example
-      std::map<std::string, int> map = {{"C++", 1}, {"Python", 2}};
-      for (const auto& pair : map) {
-          std::cout << "Map key: " << pair.first << ", value: " << pair.second << std::endl;
-      }
-
+      inFile.close();
+  
       return 0;
   }
+
   ```
 
 #### **Day 12: File Handling**
@@ -335,5 +330,70 @@ Here's a day-wise training plan for C++ development. This plan assumes a beginne
 
       return 0;
   }
-  ``
+  ```
+Here's a quick summary:
+
+1. **Writing to a file:**
+   - You create an `std::ofstream` object to open the file in output mode.
+   - The `<<` operator is used to write data to the file.
+   - The `close()` method is called to close the file once the writing operation is complete.
+
+2. **Reading from a file:**
+   - You create an `std::ifstream` object to open the file in input mode.
+   - The `std::getline()` function is used to read each line from the file.
+   - The `close()` method is called to close the file after reading.
+
+
+#### **Day 13: Pointers & Dynamic Memory Allocation**
+- **Topics:**
+  - Introduction to pointers.
+  - Dynamic memory allocation with `new` and `delete`.
+  - Pointer arithmetic.
+- **Example Code:**
+  ```cpp
+  #include <iostream>
+
+  int main() {
+      int* ptr = new int; // Dynamic memory allocation
+      *ptr = 10;
+
+      std::cout << "Value: " << *ptr << std::endl;
+      std::cout << "Address: " << ptr << std::endl;
+
+      delete ptr; // Freeing the allocated memory
+      ptr = nullptr; // Avoiding dangling pointers
+
+      return 0;
+  }
+  ```
+
+#### **Day 14: Advanced Topics - Smart Pointers & Multithreading**
+- **Topics:**
+  - Introduction to smart pointers (`std::unique_ptr`, `std::shared_ptr`).
+  - Basic multithreading using `std::thread`.
+- **Example Code:**
+  ```cpp
+  #include <iostream>
+  #include <memory>
+  #include <thread>
+
+  void printMessage() {
+      std::cout << "Hello from thread!" << std::endl;
+  }
+
+  int main() {
+      // Smart Pointers Example
+      std::unique_ptr<int> uniquePtr(new int(10));
+      std::cout << "Unique Pointer Value: " << *uniquePtr << std::endl;
+
+      // Multithreading Example
+      std::thread t1(printMessage);
+      t1.join(); // Wait for the thread to finish
+
+      return 0;
+  }
+  ```
+
+---
+
 

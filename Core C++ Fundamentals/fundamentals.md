@@ -1,4 +1,4 @@
-Here's the C++ version of the Core Java development course, adapted to C++ with similar concepts and a final project.
+Here's a day-wise training plan for C++ development. This plan assumes a beginner to intermediate level of understanding and is structured over a two-week period. Each day will cover specific topics, with example code snippets to reinforce learning.
 
 ---
 
